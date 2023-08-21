@@ -7,7 +7,7 @@ const Navbar = () => {
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
                 <div className="container-fluid">
                     <a className="navbar-brand" href="#">
-                        <img src={Logo} alt="Logo" width="200" height="112" className="d-inline-block align-text-top" />
+                        <img src={Logo} alt="Logo" style={{width:200, height:112}} className="d-inline-block align-text-top" />
                     </a>
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav">
