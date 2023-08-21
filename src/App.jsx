@@ -3,11 +3,11 @@ import Navbar from './components/Navbar'
 import ItemListContainer from './components/ItemListContainer';
 
 function App() {
-
+  const texto = "Proximamente Productos!!";
   return ( 
     <div className="contenedor">
       <Navbar />
-      <ItemListContainer greeting= {"Proximamente Productos!!"}/>
+      <ItemListContainer greeting = {texto}/>
     </div> 
   )
 }
