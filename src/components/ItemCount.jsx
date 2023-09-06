@@ -1,27 +1,37 @@
 import '../styles/ItemCount.css'
+import { useState } from 'react'
 
 const ItemCount = () => {
-    const [stockDisponible, setStockDisponible]  = useState(50);
+    const [stock, setStock]  = useState(50);
     const [cont, setCount] = useState(0);
 
-    agregarAlCarrito(() => {
-        if (cont <= stockDisponible){
-            onAdd();
+    function agregarAlCarrito(cont) {
+        if (cont <= stock){
+            setStock(stock-cont);
         }
-    })
+    }
     
-    onAdd(() =>{
-        setStockDisponible(stockDisponible-cont);
-    })
+    const onIncrease = () => {
+        if (cont < stock){
+            setCount(cont+1);
+        }       
+    }
+
+    const onDecrease = () => {
+        if (cont > 0){
+            setCount(cont-1)
+        }       
+    }
 
     return (
         <div className="container">
             <div className="contador">
-                    <button id="btnAgregar" onClick={setCount(cont+1)}>+</button>
-                    <label id="cont-valor">0</label>
-                    <button id="btnSacar" onClick={setCount(cont-1)}>-</button>
+                    <button id="btnAgregar" onClick={onIncrease}>+</button>
+                    <label id="cont-valor">{cont} </label>
+                    <button id="btnSacar" onClick={onDecrease}>-</button>
             </div>
-            <button id="agregarAlCarrito" onClick={agregarAlCarrito()}>Agregar al carrito</button>
+            {/* <button id="agregarAlCarrito" onClick={agregarAlCarrito(cont)}>Agregar al carrito</button> */}
+            <button id="agregarAlCarrito" onClick={() => agregarAlCarrito(cont)}>Agregar al carrito</button>
         </div>
     )
 }
